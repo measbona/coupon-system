@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  item: one
+  order: one
+  quantity: MyString
+
+two:
+  item: two
+  order: two
+  quantity: MyString

@@ -1,0 +1,8 @@
+%h1= @coupon.coupon_code
+%ul
+  %li= @coupon.coupon_type
+  %li= @coupon.value
+  %li= @coupon.published_at
+  %li= @coupon.valid_until
+  %li= @coupon.status
+= link_to 'Back', :back

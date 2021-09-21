@@ -1,0 +1,21 @@
+%h1 Coupons
+%table
+  %tr
+    %th Coupon Code
+    %th Coupon Type
+    %th Value
+    %th Published at
+    %th Valid until
+    %th Status
+  - @coupons.each do |coupon|
+    %tr
+      %td= coupon.coupon_code.upcase
+      %td= coupon.coupon_type
+      %td= coupon.value
+      %td= coupon.published_at
+      %td= coupon.valid_until
+      %td= coupon.status
+      %td= link_to 'Show', coupon
+      %td= link_to 'Edit', edit_coupon_path(coupon)
+      %td= link_to 'Destroy', coupon, method: :delete, data: { confirm: 'Are you sure?' }
+= link_to 'New Coupon', new_coupon_path
