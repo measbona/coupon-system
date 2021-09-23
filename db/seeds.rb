@@ -20,21 +20,30 @@
 #   ]
 # }|
 
-custom_charset = ["P", "O"]
+custom_charset = ["N", "B"]
 length_per_code = 3
+
+prefix = "MAC"
+suffix = ""
 
 @arr = []
 
-def random(chars, length, prefix = '')
+def coupon_generator(chars, length, code = '', prefix, suffix)
   chars.each_with_index do |char, index|
-    if length == 1 then 
-      @arr.push(prefix + char) 
+    if length == 1 then
+      coupon_code = prefix + code + char + suffix
+      coupon_type = ["percentage", "amount"].sample
+      value = [10, 15, 20, 5, 20].sample
+      valid_until = Date.new(2021, 9, 30)
+      published_at = Date.new()
+
+      Coupon.create(coupon_code: coupon_code, coupon_type: coupon_type, value: value, status: "active", valid_until: valid_until, published_at: published_at)
     else 
-      random(chars, length - 1, prefix + char)
+      coupon_generator(chars, length - 1, code + char, prefix, suffix)
     end
   end
 end
 
-random(custom_charset, length_per_code)
+coupon_generator(custom_charset, length_per_code, prefix, suffix)
 
 puts(@arr)
