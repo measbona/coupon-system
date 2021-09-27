@@ -2,19 +2,23 @@
 %table
   %tr
     %th Coupon Code
+    %th Campaign
     %th Coupon Type
     %th Value
     %th Published at
     %th Valid until
     %th Status
+    %th Calim by
   - @coupons.each do |coupon|
     %tr
       %td= coupon.coupon_code.upcase
+      %td= campaign_name(coupon)
       %td= coupon.coupon_type
       %td= coupon.value
       %td= coupon.published_at
       %td= coupon.valid_until
       %td= coupon.status
+      %td= customer_name(coupon)
       %td= link_to 'Show', coupon
       %td= link_to 'Edit', edit_coupon_path(coupon)
       %td= link_to 'Destroy', coupon, method: :delete, data: { confirm: 'Are you sure?' }

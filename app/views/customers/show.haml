@@ -1,0 +1,20 @@
+%h1= @customer.first_name + " "+ @customer.last_name
+
+%ul
+  %li= @customer.first_name
+  %li= @customer.last_name
+  %li= @customer.email
+  %li= @customer.phone
+  %li= @customer.source_uid
+%h3
+  = @customer.redemptions.length
+
+%ul
+  - @customer.redemptions.each do |redemption|
+    %li
+      = redemption.coupon.coupon_code
+      = redemption.amount
+      = redemption.status
+
+
+= link_to 'Back', :back

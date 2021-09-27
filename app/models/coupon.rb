@@ -1,5 +1,6 @@
 class Coupon < ApplicationRecord
   has_many :redemptions
+  has_many :customers, through: :redemptions
   has_one :validation_rule
 
   belongs_to :campaign
@@ -26,7 +27,7 @@ class Coupon < ApplicationRecord
         published_at = Date.new()
   
         Coupon.create(coupon_code: coupon_code, coupon_type: coupon_type, value: value, status: "active", valid_until: valid_until, published_at: published_at)
-      else 
+      else
         coupon_generator(chars, length - 1, code + char, prefix, suffix)
       end
     end
