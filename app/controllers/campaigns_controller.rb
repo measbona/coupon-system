@@ -1,25 +1,20 @@
 class CampaignsController < ApplicationController
   before_action :set_campaign, only: %i[ show edit update destroy ]
 
-  # GET /campaigns or /campaigns.json
   def index
     @campaigns = Campaign.all
   end
 
-  # GET /campaigns/1 or /campaigns/1.json
   def show
   end
 
-  # GET /campaigns/new
   def new
     @campaign = Campaign.new
   end
 
-  # GET /campaigns/1/edit
   def edit
   end
 
-  # POST /campaigns or /campaigns.json
   def create
     @campaign = Campaign.new(campaign_params)
 
@@ -34,7 +29,6 @@ class CampaignsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /campaigns/1 or /campaigns/1.json
   def update
     respond_to do |format|
       if @campaign.update(campaign_params)
@@ -47,7 +41,6 @@ class CampaignsController < ApplicationController
     end
   end
 
-  # DELETE /campaigns/1 or /campaigns/1.json
   def destroy
     @campaign.destroy
     respond_to do |format|
@@ -57,12 +50,10 @@ class CampaignsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_campaign
       @campaign = Campaign.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def campaign_params
       params.require(:campaign).permit(:name, :prefix, :suffix, :code_length, :code_count, :charset, :started_at, :ended_at)
     end

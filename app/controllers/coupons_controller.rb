@@ -8,6 +8,9 @@ class CouponsController < ApplicationController
   end
 
   def new
+    @status = %w"inactive, active"
+    @coupon_type = %w"percentage amount"
+
     @coupon = Coupon.new
   end
 
