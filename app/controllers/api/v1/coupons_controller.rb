@@ -19,13 +19,13 @@ class Api::V1::CouponsController < ApplicationController
     end
   end
 
-  def new
+  def create
     @coupon = Coupon.new(coupon_params)
 
     if @coupon.save(:validate => false)
       render json: @coupon
     else
-      render error: { error: "Error while creating coupon" }, status: 400
+      render error: { error: "Error while creating coupon" }, status: 500
     end
   end
 
@@ -36,7 +36,7 @@ class Api::V1::CouponsController < ApplicationController
     if @coupon.save(:validate => false)
       render json: @coupon
     else
-      render error: { error: "Error while updating coupon" }, status: 400
+      render error: { error: "Error while updating coupon" }, status: 500
     end
   end
 
@@ -54,8 +54,7 @@ class Api::V1::CouponsController < ApplicationController
 
   private
     def coupon_params
-      params.require(:coupon).permit(:coupon_code, :coupon_type, :value,
-                                    :published_at, :valid_until, :status)
+      params.require(:coupon).permit(:coupon_code, :coupon_type, :value, :status)
     end
 
     def find_coupon

@@ -5,7 +5,7 @@ class Coupon < ApplicationRecord
 
   belongs_to :campaign
 
-  STATUSES = ['inactive', 'active']
+  STATUSES = ['inactive', 'active', 'distributed', 'validated', 'redeemed', 'expired']
   COUPON_TYPES = ['percentage', 'amount']
 
   validates :coupon_code, :coupon_type, :value,
