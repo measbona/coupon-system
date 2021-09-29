@@ -8,6 +8,11 @@ Rails.application.routes.draw do
       resources :coupons
       resources :customers
       resources :redemptions
+
+      resources :campaigns do
+        get :coupons, only: [:index]
+        get :redemptions, only: [:index]
+      end
     end
   end
 

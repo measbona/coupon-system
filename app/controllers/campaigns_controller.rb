@@ -9,6 +9,12 @@ class CampaignsController < ApplicationController
   end
 
   def new
+    @charsets = %w"0123456789
+                abcdefghijklmnopqrstuvwxyz
+                ABCDEFGHIJKLMNOPQRSTUVWXYZ
+                abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
+                0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
     @campaign = Campaign.new
   end
 

@@ -9,7 +9,7 @@
     <%= f.input :suffix %>
     <%= f.input :code_length %>
     <%= f.input :code_count %>
-    <%= f.input :charset %>
+    <%= f.input :charset, collection: @charsets %>
     <%= f.input :started_at %>
     <%= f.input :ended_at %>
   </div>

@@ -1,7 +1,10 @@
 class Campaign < ApplicationRecord
-  has_many :coupons
-
   after_create :generate_coupon
+
+  has_many :coupons
+  has_many :redemptions, through: :coupons
+
+  validates :name, :code_length, :code_count, :charset, presence: :true
 
   private
 
