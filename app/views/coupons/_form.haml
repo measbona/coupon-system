@@ -1,8 +1,12 @@
-= simple_form_for @coupon do |f| 
+= simple_form_for @coupon do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
   = f.input :coupon_code
-  = f.input :coupon_type
+  = f.input :coupon_type, collection: @coupon_type, selected: 'percentage'
   = f.input :value
   = f.input :published_at
   = f.input :valid_until
-  = f.input :status
+  = f.input :status, collection: @status, selected: 'inactive'
+
   = f.button :submit

@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @campaign.name %>
+</p>
+
+<p>
+  <strong>Prefix:</strong>
+  <%= @campaign.prefix %>
+</p>
+
+<p>
+  <strong>Suffix:</strong>
+  <%= @campaign.suffix %>
+</p>
+
+<p>
+  <strong>Code length:</strong>
+  <%= @campaign.code_length %>
+</p>
+
+<p>
+  <strong>Code count:</strong>
+  <%= @campaign.code_count %>
+</p>
+
+<p>
+  <strong>Charset:</strong>
+  <%= @campaign.charset %>
+</p>
+
+<p>
+  <strong>Started at:</strong>
+  <%= @campaign.started_at %>
+</p>
+
+<p>
+  <strong>Ended at:</strong>
+  <%= @campaign.ended_at %>
+</p>
+
+<%= link_to 'Edit', edit_campaign_path(@campaign) %> |
+<%= link_to 'Back', campaigns_path %>
